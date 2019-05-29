@@ -7,3 +7,12 @@ indent_size = 2
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+indent_size = 2
+
+# CircleCi Yml parse doesn't like 2 space identation
+[.circleci/config.yml]
+indent_style = space
+indent_size = 2
