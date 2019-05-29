@@ -12,14 +12,14 @@ workflows:
             branches:
               only:
                 - master
-      - deploy:
-          requires:
-            - test
-            - build
-          filters:
-            branches:
-              only:
-                - master
+#      - deploy:
+#          requires:
+#            - test
+#            - build
+#          filters:
+#            branches:
+#              only:
+#                - master
 
 
 jobs:
@@ -29,11 +29,6 @@ jobs:
     working_directory: /go/src/github.com/roger-russel/got-version
     steps:
       - checkout
-#      - run:
-#        name: Codeclimate
-#        command: |
-#          npm install -g codeclimate-test-reporter
-
       - run:
         name: Installing Dep
         command: |
@@ -62,7 +57,6 @@ jobs:
         name: Sending Covarege Report
         command: |
           bash <(curl -s https://codecov.io/bash)
-#          codeclimate-test-reporter < coverage.txt
 
       - persist_to_workspace:
           root: /go/src/github.com/roger-russel
