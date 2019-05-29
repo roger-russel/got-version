@@ -31,8 +31,7 @@ jobs:
       - checkout
       - run:
         name: Installing Dep
-        command: |
-          curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+        command: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
       - restore_cache:
           key: dependency-cache-{{ checksum "Gopkg.toml" }}
