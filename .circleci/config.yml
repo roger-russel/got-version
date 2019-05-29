@@ -69,31 +69,32 @@ jobs:
           paths:
             - got-version
 
-  build:
-    docker:
-      - image: circleci/golang:1.10
-    steps:
-      - attach_workspace:
-        at: /go/src/github.com/roger-russel
-
-      - run:
-        name: Building All Packages
-        command: |
-          ./deploy/build-all.bash
-
-      - persist_to_workspace:
-          root: /go/src/github.com/roger-russel
-          paths:
-            - got-version
-
-  deploy:
-    docker:
-      - image: cibuilds/github:0.10
-    steps:
-      - attach_workspace:
-        at: /go/src/github.com/roger-russel
-      - run:
-        name: "Publish Release on Github"
-        command: |
-          VERSION=v.0.0.1
-          ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/'
+#  build:
+#    docker:
+#      - image: circleci/golang:1.10
+#    steps:
+#      - attach_workspace:
+#        at: /go/src/github.com/roger-russel
+#
+#      - run:
+#        name: Building All Packages
+#        command: |
+#          ./deploy/build-all.bash
+#
+#      - persist_to_workspace:
+#          root: /go/src/github.com/roger-russel
+#          paths:
+#            - got-version
+#
+#  deploy:
+#    docker:
+#      - image: cibuilds/github:0.10
+#    steps:
+#      - attach_workspace:
+#        at: /go/src/github.com/roger-russel
+#      - run:
+#        name: "Publish Release on Github"
+#        command: |
+#          VERSION=v.0.0.1
+#          ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/'
+#
