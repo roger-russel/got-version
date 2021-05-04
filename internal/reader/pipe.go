@@ -2,7 +2,6 @@ package reader
 
 import (
 	"bufio"
-	"errors"
 	"os"
 )
 
@@ -15,7 +14,7 @@ func Pipe() (*bufio.Reader, error) {
 	}
 
 	if info.Mode()&os.ModeCharDevice != 0 {
-		return nil, errors.New("This version only accept data from pipe")
+		return nil, ErrDataIsNotFromAPIPE
 	}
 
 	return bufio.NewReader(os.Stdin), nil

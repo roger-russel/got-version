@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-
 	pipe, errPipe := reader.Pipe()
 
 	if errPipe != nil {
@@ -19,5 +18,4 @@ func main() {
 	last := tag.GetLastTag(pipe)
 
 	fmt.Println(last)
-
 }

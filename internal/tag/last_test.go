@@ -24,6 +24,7 @@ func TestGetLastTag(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			if got := GetLastTag(tt.args.pipe); got != tt.want {
 				t.Errorf("GetLastTag() = %v, want %v", got, tt.want)
@@ -33,7 +34,6 @@ func TestGetLastTag(t *testing.T) {
 }
 
 func getSimplePrefixed() *bufio.Reader {
-
 	file, err := os.Open("../../tests/fixture/prefixed.list.txt")
 
 	if err != nil {
@@ -41,5 +41,4 @@ func getSimplePrefixed() *bufio.Reader {
 	}
 
 	return bufio.NewReader(file)
-
 }
