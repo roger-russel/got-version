@@ -25,7 +25,7 @@ func GetLastTag(pipe *bufio.Reader) string {
 		check(lastTag, curTag[0])
 	}
 
-	return fmt.Sprintf("v.%v.%v.%v",
+	return fmt.Sprintf("v%v.%v.%v",
 		lastTag[semantical.Regex.Major],
 		lastTag[semantical.Regex.Minor],
 		lastTag[semantical.Regex.Patch],

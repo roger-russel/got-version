@@ -20,7 +20,7 @@ func TestGetLastTag(t *testing.T) {
 			args: args{
 				pipe: getSimplePrefixed(),
 			},
-			want: "v.111.23.23",
+			want: "v123.3.2",
 		},
 	}
 	for _, tt := range tests {
