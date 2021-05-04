@@ -1,10 +1,6 @@
 .PHONY: test
 test:
-	@go test -cover -coverprofile=./coverage.dirty.txt -covermode=atomic -coverpkg=all ./...
-	@$(shell echo "mode: " > ./coverage.soup.txt)
-	@$(shell go list ./... >> ./coverage.soup.txt)
-	@$(shell cat ./coverage.dirty.txt | grep -f ./coverage.soup.txt > coverage.txt)
-	@rm ./coverage.soup.txt ./coverage.dirty.txt
+	@go test -cover -coverprofile=./coverage.txt -covermode=atomic -coverpkg=./... ./...
 
 .PHONY: coverage
 coverage: test
